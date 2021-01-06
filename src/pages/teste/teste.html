@@ -12,30 +12,39 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row>
-      <ion-col col-8>
+    <ion-row align-items-center>
+      <ion-col col-12>
+        <ion-label>Escolha escrever ou não seu nome</ion-label>
+      <ion-list radio-group [(ngModel)]="checkbutton" >
+          <ion-item >
+            <ion-label>sim</ion-label>
+            <ion-radio value="true"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>NÂO</ion-label>
+            <ion-radio value="false" (click)="alerta()"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+      <ion-col col-12 class="alinhamento"> 
+        <img src="../../assets/img/baixados.png"  />
     <ion-list>
+    
     <ion-item>
+      
       <ion-label >Nome</ion-label>
       <ion-input [(ngModel)]="nome" type="text" [disabled]="checkbutton"></ion-input>
     </ion-item>
-    <button ion-button (click)="teste()" >Enviar</button>
+    <button ion-button (click)="teste()" >Enviar pro modal</button>
+    <button ion-button (click)="env()" >Enviar pagina</button>
+    
+
      </ion-list>
     </ion-col>
   </ion-row>
 
 
 
-  <ion-list radio-group [(ngModel)]="ckeckbutton">
-    <ion-item>
-      <ion-label>sim</ion-label>
-      <ion-radio value="true"></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>NÂO</ion-label>
-      <ion-radio value="false"></ion-radio>
-    </ion-item>
-  </ion-list>
 
   </ion-grid> 
 </ion-content>

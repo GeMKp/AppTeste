@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams , ModalController} from 'ionic-angular';
+import { Page4Page } from '../page4/page4';
 /**
  * Generated class for the TestePage page.
  *
@@ -15,27 +15,38 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TestePage {
   nome:string;
-  checkbutton:string='';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  checkbutton:boolean=false;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     
   }
 
-  ionViewDidLoad() {
-    //console.log('ionViewDidLoad TestePage');
-    alert('olá');
-  }
-ionViewWillEnter(){
-  alert('olá 1');
-}
-  ionViewDidEnter(){
-    alert("olá 2");
-  }
+   ionViewDidLoad() {
+   console.log('ionViewDidLoad TestePage');
+     alert('olá');
+   }
+  // ionViewWillEnter(){
+  // alert('olá 1');
+  // }
+  // ionViewDidEnter(){
+  //   alert("olá 2");
+  // }
 
   teste(){
-    alert(this.nome);
+    const modal = this.modalCtrl.create('Page4Page', {nome:this.nome});
+    modal.present();
+
+    
   }
 
+  alerta(){
+        alert(this.checkbutton);
+  }
 
+ env(){
+  this.navCtrl.push('Page4Page', {
+    nome:this.nome
+  }); 
+ }
 
 
 
