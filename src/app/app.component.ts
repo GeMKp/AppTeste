@@ -43,7 +43,11 @@ export class MyApp {
     { title: 'Menu', component: 'MenuPage' },
     { title: 'Settings', component: 'SettingsPage' },
     { title: 'Search', component: 'SearchPage' },
+<<<<<<< HEAD
     { title: 'Teste', component: 'TestePage' }
+=======
+    { title: 'Test2', component: 'Teste2page'},
+>>>>>>> 02919189b9dfa94a5b8b4fb7f82095ca7b0424c7
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
