@@ -29,6 +29,4 @@ export class Teste2Page {
     alert(this.name);
   }
 
-  disable()
-
 }
