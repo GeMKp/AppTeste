@@ -1,3 +1,19 @@
 page-teste2 {
+    img{
+        
+    }
 
+    ion-label{
+        text-align: center;
+        font-size: 20px;
+        font-family:sans-serif;
+    }
+    ::placeholder{
+        text-align: center;
+    }
+    button{
+        font-size: 30%;
+        opacity: 60%;
+        font-display: 20px;
+    }
 }
