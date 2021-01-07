@@ -23,20 +23,21 @@
         <ion-row align-items-center class="row-form">
           <ion-col col-10 align-self-center> 
               <ion-list radio-group [(ngModel)]="check" >
-                  <ion-label > Escreva seu nome abaixo:</ion-label>
-                    <ion-item>                
+                    <ion-label > Deseja escrever seu nome e ano de nascimento abaixo?</ion-label>
+                    <ion-item >                
                            <ion-label color="secondary">SIM</ion-label>
-                           <ion-radio class="yes" value="false"></ion-radio>
-                        </ion-item>  
-                        <ion-item>
+                           <ion-radio value="false"></ion-radio>
+                    </ion-item>  
+                    <ion-item>
                           <ion-label color="danger">NÃO</ion-label>
-                          <ion-radio class="yes" value="true"> </ion-radio>
-                      </ion-item>
+                          <ion-radio value="true" checked> </ion-radio>
+                   </ion-item>
               </ion-list>
-              <button ion-button clear>OK!</button>
+              <!-- <button ion-button clear round color ="cor-button"class="button">Escolher</button> -->
               <ion-label>NOME:</ion-label>
               <ion-input  type="text" [disabled]="check" [(ngModel)]="name" placeholder="Digite seu nome"></ion-input>
-              <button ion-button clear (click)="teste()"> OK! </button>
+              <ion-input type="number" [(ngModel)]="ano" [disabled]="check" placeholder="Digite seu ano de nascimento" ></ion-input>
+              <button ion-button clear round color ="cor-button" class="button" [disabled]="!name && !ano" (click)="teste()"> Enviar </button>
           </ion-col>
         </ion-row>
       </div>

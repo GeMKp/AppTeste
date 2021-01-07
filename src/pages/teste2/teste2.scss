@@ -14,25 +14,35 @@ page-teste2 {
         align-items: center;
     }
 
+    ion-list ion-item:hover{
+        opacity: 60%;
+        background-color: #87bfff;
+    }
+
     ion-label{
         text-align: center;
-        font-size: 20px;
+        font-size: 1em;
         font-family:sans-serif;
         text-indent: 5px;
     }
     ::placeholder{
         text-align: center;
     }
-
-    button{
-        transition-duration: 3s;
-        font-size: 35%;
-        font-display: 20px;
+    ion-col{
         text-align: center;
     }
-    ion-button:hover{
-        opacity: 60%;
-        background-color: #a7b1bb;
+    button[ion-button]{
+        transition-duration: 1s;
+        font-size: 1em;
+        font-display: 20px;
+        text-align: center;
+        border-radius: 5px;
+    }
+  
+    .button-md:hover{
+        opacity: 90%;
+        background-color: #87bfff !important;
         color: #008CBA;
     }
+ 
 }
