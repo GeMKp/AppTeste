@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams , ModalController} from 'ionic-angular';
-import { Page4Page } from '../page4/page4';
+
 /**
  * Generated class for the TestePage page.
  *
@@ -33,19 +33,24 @@ export class TestePage {
 
   teste(){
     const modal = this.modalCtrl.create('Page4Page', {nome:this.nome});
-    modal.present();
-
-    
+    modal.present();  
   }
 
   alerta(){
-        alert(this.checkbutton);
+        this.checkbutton = false;
   }
 
  env(){
-  this.navCtrl.push('Page4Page', {
+  
+   if(this.nome == "" || this.nome == null){
+         alert("Por favor insera um nome !!!");
+    }
+   else{
+    this.navCtrl.push('Page4Page', {
     nome:this.nome
-  }); 
+   });      
+  }
+
  }
 
 

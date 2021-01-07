@@ -1,20 +1,10 @@
 page-teste {
-  .alinhamento{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    display: flexbox;
-    align-content: center;
-    align-items: center;
-    align-self: center;
-    text-align: center;
+
+  .icon, .text-avatar{
+   text-align: center;
   }
-  img{
-    position: absolute;
-    align-self: center;
-    display:block;
-    width: 200px;
-    height: auto;
+  .div{
+    justify-content: center;
   }
 }
 
