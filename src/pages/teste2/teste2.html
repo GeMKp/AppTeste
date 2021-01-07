@@ -10,31 +10,36 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content padding >
     <ion-grid>
-      <ion-row align-items-center>
-        <ion-col col-10 align-self-center> 
-          <img src="../../assets/imgs/user.png" width="300px" >
-            <ion-list radio-group [(ngModel)]="check" >
-                <ion-label > Escreva seu nome abaixo:</ion-label>
-                  <ion-item>                
-                    <ion-label >SIM</ion-label>
-                    <ion-radio class="yes" value="false"></ion-radio>
-                  </ion-item>  
-                  <ion-item>
-                    <ion-label color="danger">NÃO</ion-label>
-                    <ion-radio class="yes" value="true"> </ion-radio>
-                  </ion-item>
-            </ion-list>
-            <button ion-button full >OK!</button>
-
-
-            <ion-label>NOME:</ion-label>
-            <ion-input  type="text" [disabled]="check" [(ngModel)]="name" placeholder="Digite seu nome"></ion-input>
-            <button ion-button full (click)="teste()"> OK! </button>
-        </ion-col>
-      </ion-row>
+      <div id="div-grid">
+        <ion-row align-items-center>
+          <ion-col col-12  >
+            <div id="row-img">
+              <img src="../../assets/imgs/user.png" width="250px" >
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row align-items-center class="row-form">
+          <ion-col col-10 align-self-center> 
+              <ion-list radio-group [(ngModel)]="check" >
+                  <ion-label > Escreva seu nome abaixo:</ion-label>
+                    <ion-item>                
+                           <ion-label color="secondary">SIM</ion-label>
+                           <ion-radio class="yes" value="false"></ion-radio>
+                        </ion-item>  
+                        <ion-item>
+                          <ion-label color="danger">NÃO</ion-label>
+                          <ion-radio class="yes" value="true"> </ion-radio>
+                      </ion-item>
+              </ion-list>
+              <button ion-button clear>OK!</button>
+              <ion-label>NOME:</ion-label>
+              <ion-input  type="text" [disabled]="check" [(ngModel)]="name" placeholder="Digite seu nome"></ion-input>
+              <button ion-button clear (click)="teste()"> OK! </button>
+          </ion-col>
+        </ion-row>
+      </div>
     </ion-grid>
 
 </ion-content>
