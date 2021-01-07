@@ -45,7 +45,6 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'Teste', component: 'TestePage' },
     { title: 'Test2', component: 'Teste2page'}
-
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
