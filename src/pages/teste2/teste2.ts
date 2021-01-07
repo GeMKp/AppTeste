@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Teste3Page } from '../teste3/teste3';
+import { ModalController } from 'ionic-angular';
+
+
 
 /**
  * Generated class for the Teste2Page page.
@@ -15,8 +19,9 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class Teste2Page {
 
-  name:string = 't';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  name:string;
+  check:boolean;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     // this.teste();
   }
 
@@ -26,8 +31,17 @@ export class Teste2Page {
   // }
 
   teste(){
-    alert(this.name);
+    this.navCtrl.push('Teste3Page', {data: this.name }); 
+    // const modal = this.modalCtrl.create('Teste3Page', {data: this.name});
+    // modal.present();   
   }
 
+  checkout(check:any){
+        //alert("valor " + check);
+        let doc = window.getSelection();
+         alert(doc[0]);
+  }
+
+  
 
 }

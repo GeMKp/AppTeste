@@ -1,3 +1,38 @@
 page-teste2 {
+    #div-grid{        
+        align-items: baseline
+    }
+    img:hover{
+        opacity: 80%;
+    }
+    #row-img{
+        text-align: center;
+    }
 
+    .row-form{
+        justify-content: center;
+        align-items: center;
+    }
+
+    ion-label{
+        text-align: center;
+        font-size: 20px;
+        font-family:sans-serif;
+        text-indent: 5px;
+    }
+    ::placeholder{
+        text-align: center;
+    }
+
+    button{
+        transition-duration: 3s;
+        font-size: 35%;
+        font-display: 20px;
+        text-align: center;
+    }
+    ion-button:hover{
+        opacity: 60%;
+        background-color: #a7b1bb;
+        color: #008CBA;
+    }
 }
