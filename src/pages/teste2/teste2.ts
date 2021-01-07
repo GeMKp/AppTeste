@@ -21,6 +21,7 @@ export class Teste2Page {
 
   name:string;
   check:boolean;
+  ano:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     // this.teste();
   }
@@ -31,11 +32,16 @@ export class Teste2Page {
   // }
 
   teste(){
-    this.navCtrl.push('Teste3Page', {data: this.name }); 
+    if (2021 - this.ano >= 18 ) {
+      this.navCtrl.push('Teste3Page', {data: this.name }); 
+    } else {
+      alert('Você não tem idade o suficiente, volte depois de alguns anos.')
+    }
     // const modal = this.modalCtrl.create('Teste3Page', {data: this.name});
     // modal.present();   
   }
 
+  
   checkout(check:any){
         //alert("valor " + check);
         let doc = window.getSelection();
