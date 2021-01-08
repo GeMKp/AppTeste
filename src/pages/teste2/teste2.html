@@ -22,22 +22,22 @@
         </ion-row>
         <ion-row align-items-center class="row-form">
           <ion-col col-10 align-self-center> 
-              <ion-list radio-group [(ngModel)]="check" >
-                    <ion-label > Deseja escrever seu nome e ano de nascimento abaixo?</ion-label>
+              <ion-list radio-group [(ngModel)]="check" class="div-radio">
+                    <ion-label > Deseja escrever seu ano de nascimento abaixo?</ion-label>
                     <ion-item >                
                            <ion-label color="secondary">SIM</ion-label>
                            <ion-radio value="false"></ion-radio>
                     </ion-item>  
                     <ion-item>
                           <ion-label color="danger">NÃO</ion-label>
-                          <ion-radio value="true" checked> </ion-radio>
+                          <ion-radio value="true"> </ion-radio>
                    </ion-item>
               </ion-list>
-              <!-- <button ion-button clear round color ="cor-button"class="button">Escolher</button> -->
-              <ion-label>NOME:</ion-label>
-              <ion-input  type="text" [disabled]="check" [(ngModel)]="name" placeholder="Digite seu nome"></ion-input>
-              <ion-input type="number" [(ngModel)]="ano" [disabled]="check" placeholder="Digite seu ano de nascimento" ></ion-input>
-              <button ion-button clear round color ="cor-button" class="button" [disabled]="!name && !ano" (click)="teste()"> Enviar </button>
+                    <ion-label>ANO DE NASCIMENTO:</ion-label>
+                    <ion-input type="number" [(ngModel)]="ano" [disabled]="check" class="buttoncss"  placeholder="Digite seu ano de nascimento" ></ion-input>
+                    <ion-label>NOME:</ion-label>
+                    <ion-input  type="text" [(ngModel)]="name" [disabled]="check" class="buttoncss" (ionChange)="mud()" placeholder="Digite seu nome"></ion-input>
+                    <button ion-button clear round color="cor-button" class="button" [disabled]="checkbutt" (click)="teste()"> Enviar </button>
           </ion-col>
         </ion-row>
       </div>
