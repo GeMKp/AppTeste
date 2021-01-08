@@ -34,8 +34,8 @@
       <ion-item>
        <ion-input [(ngModel)]="nome" type="text" [disabled]="checkbutton"></ion-input>
       </ion-item>
-      <button ion-button (click)="teste()" color="buttonOne" [disabled]="checkbutton" >Abra no modal</button>
-      <button ion-button (click)="env()" color="buttonTwho" [disabled]="checkbutton" >Abrir página</button>
+      <button ion-button (click)="teste()" color="buttonOne" [hidden]="checkbutton" >Abra no modal</button>
+      <button ion-button (click)="env()" color="buttonTwho" [hidden]="checkbutton" >Abrir página</button>
      </ion-col>
    </ion-row>
  </ion-grid>
