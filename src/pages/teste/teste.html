@@ -19,23 +19,29 @@
         <ion-list radio-group [(ngModel)]="checkbutton" >
           <ion-item >
             <ion-label>sim</ion-label>
-            <ion-radio value="true" (click)="alerta()"></ion-radio>
+            <ion-radio value="false"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item >
             <ion-label>NÂO</ion-label>
-            <ion-radio value="false" ></ion-radio>
+            <ion-radio value="true" ></ion-radio>
           </ion-item>
       </ion-list>
     </ion-col>
    </ion-row>
-   <ion-row class="div">
+   <ion-row class="div" >
      <ion-col col-10 >
-      <ion-label >Nome:</ion-label>
+     
       <ion-item>
-       <ion-input [(ngModel)]="nome" type="text" [disabled]="checkbutton"></ion-input>
+        <ion-label >Ano de nascimento</ion-label>
+        <ion-input [(ngModel)]="ano" type="number" [disabled]="checkbutton" (ionChange)=" VerificarIdade()"></ion-input>
       </ion-item>
-      <button ion-button (click)="teste()" color="buttonOne" [hidden]="checkbutton" >Abra no modal</button>
-      <button ion-button (click)="env()" color="buttonTwho" [hidden]="checkbutton" >Abrir página</button>
+      <ion-item>
+        <ion-label >Nome:</ion-label>
+       <ion-input [(ngModel)]="nome" type="text" [disabled]="checkbutton" (ionChange)="VerificarNome()"></ion-input>
+      </ion-item>
+
+      <button ion-button (click)="CliqueModal()" color="buttonOne" [hidden]="check" >Abra no modal</button>
+      <button ion-button (click)="AbraPagina()" color="buttonTwho" [hidden]="check" >Abrir página</button>
      </ion-col>
    </ion-row>
  </ion-grid>

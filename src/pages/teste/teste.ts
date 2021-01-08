@@ -15,14 +15,18 @@ import { IonicPage, NavController, NavParams , ModalController} from 'ionic-angu
 })
 export class TestePage {
   nome:string;
-  checkbutton:boolean=false;
+  ano:number;
+  idade:boolean=true;
+  checkbutton:boolean=true;
+  checkname:boolean=true;
+  check:boolean=true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     
   }
 
    ionViewDidLoad() {
-   console.log('ionViewDidLoad TestePage');
-     alert('olá');
+   //console.log('ionViewDidLoad TestePage');
+     //alert('olá');
    }
   // ionViewWillEnter(){
   // alert('olá 1');
@@ -31,30 +35,54 @@ export class TestePage {
   //   alert("olá 2");
   // }
 
-  teste(){
-    const modal = this.modalCtrl.create('Page4Page', {nome:this.nome});
-    modal.present();  
-  }
+//Refactor
 
-  alerta(){
-        this.checkbutton = false;
-  }
-
- env(){
-  
-   if(this.nome == "" || this.nome == null){
-         alert("Por favor insera um nome !!!");
-    }
+ VerificarIdade(){
+   if((2021 - this.ano) >= 18 && (2021 - this.ano) <= 110){
+    this.checkname = false;
+   }
    else{
-    this.navCtrl.push('Page4Page', {
-    nome:this.nome
-   });      
-  }
+     this.checkname = true;
+   }
 
  }
+ VerificarNome(){
+   if(this.nome == " "){
+    this.check = true;
+   }
+   else{
+     this.check = false;
+   }
+ }
+
+ CliqueModal(){
+   if(this.checkbutton == false){
+    const modal = this.modalCtrl.create('Page4Page', {nome:this.nome});
+    modal.present();       
+   }
+   else{
+     alert("Por favor escolha a opção SIM e tente novamente.");
+     this.checkbutton = false;
+   }
+ }
+ AbraPagina(){
+  if(this.checkbutton == false){
+   const id = 2021 - this.ano;
+    this.navCtrl.push('Page4Page', {
+    nome:this.nome,
+    idade: id
+   });       
+  }
+  else{
+    alert("Por favor escolha a opção SIM e tente novamente.");
+    this.checkbutton = false;
+   }
+  }
+ }
+//------------------------------
 
 
 
 
 
-}
+

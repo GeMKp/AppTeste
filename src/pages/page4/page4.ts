@@ -15,8 +15,10 @@ import { IonicPage, NavController, NavParams , ViewController} from 'ionic-angul
 })
 export class Page4Page {
  nome:string;
+ idade:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public ViewCtrl: ViewController ) {
     this.nome = this.navParams.get('nome');
+    this.idade = this.navParams.get('idade');
   }
 
   ionViewDidLoad() {
