@@ -17,10 +17,14 @@ page-teste2 {
     ion-list ion-item:hover{
         opacity: 60%;
         background-color: #87bfff;
+        border-radius: 20px;
+        justify-content: center;
     }
     ion-list{
-        width: 30%;
-        height: auto;
+        width: 45%;
+    }
+    .div-radio{
+        justify-content: center;
     }
     ion-label{
         text-align: center;
@@ -33,19 +37,24 @@ page-teste2 {
     }
     ion-col{
         text-align: center;
+        align-items: center;
     }
     button[ion-button]{
-        transition-duration: 1s;
         font-size: 1em;
         font-display: 20px;
         text-align: center;
-        border-radius: 5px;
     }
   
     .button-md:hover{
         opacity: 90%;
         background-color: #87bfff !important;
         color: #008CBA;
+    }
+
+    .buttoncss{
+        width: 45%;
+        height: auto;
+        align-items: center;
     }
  
 }

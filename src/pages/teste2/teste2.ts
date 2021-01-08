@@ -20,8 +20,9 @@ import { ModalController } from 'ionic-angular';
 export class Teste2Page {
 
   name:string;
-  check:boolean;
+  check:string = "true";
   ano:number;
+  checkbutt: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
     // this.teste();
   }
@@ -31,15 +32,28 @@ export class Teste2Page {
   //   alert('ola');
   // }
 
+  mud(){
+    if (2021 - this.ano >= 18 && this.ano > 1900 && this.name != '') {
+      this.checkbutt= false;
+    } 
+  }
+
   teste(){
-    if (2021 - this.ano >= 18 ) {
-      this.navCtrl.push('Teste3Page', {data: this.name }); 
-    } else {
-      alert('Você não tem idade o suficiente, volte depois de alguns anos.')
-    }
+    if (2021 - this.ano >= 18 && this.ano > 1900 && this.name != '') {
+      if (this.check == "true") {
+        alert("Opção desabilitada!");
+      }
+      else{
+        this.navCtrl.push('Teste3Page', {data: this.name ,idade: 2021-this.ano}); 
+      }
+    } 
+    else {
+        alert('Você não tem idade o suficiente, ou nome esta invalido!')
+      }
+    } 
     // const modal = this.modalCtrl.create('Teste3Page', {data: this.name});
     // modal.present();   
-  }
+ 
 
   
   checkout(check:any){

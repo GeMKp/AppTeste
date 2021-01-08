@@ -16,8 +16,10 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class Teste3Page {
   texto:string;
+  id: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
     this.texto = this.navParams.get('data');
+    this.id = this.navParams.get('idade');
   }
 
   ionViewDidLoad() {
