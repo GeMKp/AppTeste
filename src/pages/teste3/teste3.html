@@ -13,6 +13,12 @@
 <ion-content padding>
   <button ion-button (click)="back()">Voltar</button>
   <button ion-button color="danger" full outline (click)="openpage()">Home</button>
-      {{ texto }}
-      {{ id }}
+  <ion-item>
+    <ion-label>usuario:  {{user}}</ion-label>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label>idade:   {{id}}</ion-label>
+  </ion-item>
+
 </ion-content>
