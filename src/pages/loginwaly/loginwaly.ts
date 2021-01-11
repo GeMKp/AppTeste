@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Storage } from '@ionic/storage';
 /**
  * Generated class for the LoginwalyPage page.
@@ -14,24 +15,56 @@ import { Storage } from '@ionic/storage';
   templateUrl: 'loginwaly.html',
 })
 export class LoginwalyPage {
+ nome:string;
+ senha:string;
+ dado:any= [];
+ key:string = "dado";
+
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams, 
-    public storage: Storage ){
-      new Promise((resolve,reject)=>{
-        this.storage.set('waly', 18)
-        .then(() => { console.log('deu certo'); return resolve; })
-        .catch(erro => console.log('deu erro' + erro));
-      }).then(()=> { console.log(this.PegarValor()) })
-      .catch(err => console.log(`promisse${err}`));
+    private storage: Storage ){
+ 
   }
 
-  ionViewDidLoad() {
-    
+ salvarDado(){
+
+ if(this.nome == "" && this.senha == ""){
+  alert("Nome e senha não foram informados");
+  return;
+ }
+  else if (this.nome == "") {
+    alert("Nome não informado");
+    return;
   }
- 
-  PegarValor(){
-   return this.storage.get('waly');
+  else if (this.senha == "") {
+    alert("Senha não informada");
+    return;
   }
+  if(this.senha.length < 8 ){
+    alert("Senha precisa ter no mínimo 8 digitos");
+
+    return;
+  }
+
+
+   this.dado.push(
+     {
+       nome: this.nome,
+       senha: this.senha
+     }
+   );
+   this.storage.set(this.key, this.dado);
+ }
+
+ mostrarDado(){
+   this.storage.get(this.key).then((val:any) =>
+   {
+     val.forEach((dado)=> {
+       alert("Bem-vindo " + dado.nome + " sua senha é " + dado.senha);
+     });
+   });
+ }
+
 }
