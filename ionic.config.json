@@ -1,7 +1,8 @@
 {
   "name": "AppTeste",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "ionic-angular"
 }

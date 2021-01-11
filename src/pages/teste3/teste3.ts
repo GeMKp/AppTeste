@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
   templateUrl: 'teste3.html',
 })
 export class Teste3Page {
-  texto:string;
   id: number;
+  user: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
-    this.texto = this.navParams.get('data');
-    this.id = this.navParams.get('idade');
+    this.id = this.navParams.get('id');
+    this.user = this.navParams.get('user')
+
   }
 
   ionViewDidLoad() {

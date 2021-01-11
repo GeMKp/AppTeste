@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Teste3Page } from '../teste3/teste3';
 import { ModalController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+
 
 
 
@@ -21,9 +24,15 @@ export class Teste2Page {
 
   name:string;
   check:string = "true";
+  senha: string;
   ano:number;
+  idade: number;
   checkbutt: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  keyname: string = 'username';
+  dados: any = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController,
+              private storage: Storage) {
     // this.teste();
   }
 
@@ -38,30 +47,45 @@ export class Teste2Page {
     } 
   }
 
-  teste(){
-    if (2021 - this.ano >= 18 && this.ano > 1900 && this.name != '') {
-      if (this.check == "true") {
-        alert("Opção desabilitada!");
+  register(){
+
+      this.dados.push({
+        nome: this.name,
+        senha: this.senha
+      });
+
+      this.storage.set(this.keyname, this.dados);
+
+      if (2021 - this.ano >= 18 && this.ano > 1900 && this.name != '' && this.senha.length > 8 ) {
+        this.idade= 2021- this.ano;
+        alert("Seu registro foi um sucesso!");
+        this.name = "";
+        this.senha = "";
+        if (this.check == "true") {
+          alert("Opção desabilitada!");
+        }
+        else{
+          // this.navCtrl.push('Teste3Page', {data: this.name ,idade: 2021-this.ano}); 
+        }
+      } 
+      else {
+          alert('Idade suficiente, ou nome invalido, ou senha curta.')
       }
-      else{
-        this.navCtrl.push('Teste3Page', {data: this.name ,idade: 2021-this.ano}); 
-      }
-    } 
-    else {
-        alert('Você não tem idade o suficiente, ou nome esta invalido!')
-      }
-    } 
+  } 
     // const modal = this.modalCtrl.create('Teste3Page', {data: this.name});
-    // modal.present();   
- 
+    // modal.present();  
 
-  
-  checkout(check:any){
-        //alert("valor " + check);
-        let doc = window.getSelection();
-         alert(doc[0]);
+  login(){
+    this.storage.get(this.keyname).then((val:any) => {
+      if (2021 - this.ano >= 18 && this.ano > 1900 && this.name != '' && this.senha.length > 8 && this.dados.senha != '') {
+        if (val[0].nome == this.name && val[0].senha == this.senha) {
+          this.navCtrl.push('Teste3Page', {user: this.name ,id: this.idade});
+        } else {
+          alert("login invalido.");
+        }
+      } else {
+        alert("É necessario se registrar.");
+      }
+    });
   }
-
-  
-
 }

@@ -21,6 +21,8 @@ page-teste2 {
         justify-content: center;
     }
     ion-list{
+        text-align: center;
+        display: inline-block;
         width: 45%;
     }
     .div-radio{
@@ -31,6 +33,7 @@ page-teste2 {
         font-size: 1em;
         font-family:sans-serif;
         text-indent: 5px;
+        color: #0077ff;
     }
     ::placeholder{
         text-align: center;
@@ -44,7 +47,9 @@ page-teste2 {
         font-display: 20px;
         text-align: center;
     }
-  
+    .button{
+        display: block;
+    }
     .button-md:hover{
         opacity: 90%;
         background-color: #87bfff !important;
@@ -52,9 +57,15 @@ page-teste2 {
     }
 
     .buttoncss{
+        border-bottom: 3px solid #87bfff;
         width: 45%;
         height: auto;
         align-items: center;
+        text-align: center;
+        display: inline-block;
     }
- 
+    #register{
+        border: 2px #87bfff;
+    }
+    
 }
