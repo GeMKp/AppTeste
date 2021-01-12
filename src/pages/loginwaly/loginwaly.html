@@ -12,13 +12,17 @@
 
 <ion-content padding>
 
-   <ion-label>Nome:</ion-label>
-   <input [(ngModel)]="nome" placeholder="Insira seu nome" type="text" pattern="[A-Za-z]">
-
-
-  <ion-label>Senha:</ion-label>
-   <ion-input [(ngModel)]="senha" ></ion-input>
+  <ion-item>
+      <ion-label>Nome:</ion-label>
+      <ion-input [(ngModel)]="nome" placeholder="Insira seu nome" ></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-label>Senha:</ion-label>
+      <ion-input [(ngModel)]="senha" placeholder="Insira sua senha"></ion-input>
+  </ion-item>
+  
+   
 
  <button ion-button (click)="salvarDado()">Registrar</button>
- <button ion-button (click)="mostrarDado()">Mostrar</button>
+ <button ion-button (click)="mostrarDado()">Entrar</button>
 </ion-content>
