@@ -1,0 +1,24 @@
+<!--
+  Generated template for the HomeeduPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>homeedu</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+            <h3>Seu nome de usuario: </h3> {{user}}
+            <h3>Idade:</h3> {{idade}}
+        <ion-label>Deseja adicionar imagem?</ion-label>
+        <button ion-button small (click)="altera()">Alterações</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
