@@ -45,11 +45,8 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'Teste', component: 'TestePage' },
     { title: 'Test2', component: 'Teste2page'},
-<<<<<<< HEAD
-    { title: 'Loginwaly', component: 'LoginwalyPage'}
-=======
+    { title: 'Loginwaly', component: 'LoginwalyPage'},
     { title: 'teste3', component: 'Teste3Page'}
->>>>>>> task_01
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
