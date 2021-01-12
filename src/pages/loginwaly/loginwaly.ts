@@ -16,7 +16,7 @@ import { Storage } from '@ionic/storage';
 })
 export class LoginwalyPage {
  nome:string;
- senha:string;
+ senha:string = "";
  dado:any= [];
  key:string = "dado";
 
@@ -30,23 +30,22 @@ export class LoginwalyPage {
 
  salvarDado(){
 
- if(this.nome == "" && this.senha == ""){
-  alert("Nome e senha não foram informados");
-  return;
- }
-  else if (this.nome == "") {
+ if(this.nome == "") {
     alert("Nome não informado");
-    return;
+   return false;
   }
-  else if (this.senha == "") {
-    alert("Senha não informada");
-    return;
+  if (this.senha != ""){
+    if(this.senha.length < 8 ){
+        alert("Senha precisa ter no mínimo 8 digitos");
+        return false;
+    } 
   }
-  if(this.senha.length < 8 ){
-    alert("Senha precisa ter no mínimo 8 digitos");
+  else{
+   alert("Senha não informada");
+   return false;
+  }
 
-    return;
-  }
+
 
 
    this.dado.push(
@@ -55,14 +54,39 @@ export class LoginwalyPage {
        senha: this.senha
      }
    );
-   this.storage.set(this.key, this.dado);
+  
+   this.storage.set(this.key, this.dado).then(function () {
+       alert("Você se cadastrou");
+     });
  }
 
  mostrarDado(){
+
+  if(this.nome == "") {
+    alert("Nome não informado");
+   return false;
+  }
+  if (this.senha != ""){
+    if(this.senha.length < 8 ){
+        alert("Senha precisa ter no mínimo 8 digitos");
+        return false;
+    } 
+  }
+  else{
+   alert("Senha não informada");
+   return false;
+  }
+
    this.storage.get(this.key).then((val:any) =>
    {
-     val.forEach((dado)=> {
-       alert("Bem-vindo " + dado.nome + " sua senha é " + dado.senha);
+     val.forEach((dado:any)=> {
+       if(this.senha == dado.senha){
+         alert("Bem-vindo " + dado.nome + " sua senha é " + dado.senha);
+       }
+       else{
+         alert("Desculpe verifique se nome ou a senha estão escritos corretamente.")
+       }
+       
      });
    });
  }
