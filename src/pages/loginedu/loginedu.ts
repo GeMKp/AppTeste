@@ -19,7 +19,7 @@ export class LogineduPage {
   name: string;
   senha: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-
+    this.entrar();
   }
 
   ionViewDidLoad() {
@@ -28,11 +28,23 @@ export class LogineduPage {
 
   entrar(){
     this.storage.get('username').then((val:any) => {
-        if (val[0].nome == this.name && val[0].senha == this.senha) {
-          this.navCtrl.push('HomeeduPage', {user: this.name, senha: this.senha});
-        } else {
-          alert("Login invalido");
-        }
+      val.forEach(function (value: any, key: number) {
+        console.log('primeiro: ' + key + "=>" + value);
+        value.forEach(function (val: any, k:any) {
+          console.log('segundo: '+ k + "=>" + val);
+        });
+      });
+
+
+      // for (let i = 0; i <= val.length; i++) {
+      //   if (val[i].nome == this.name && val[i].senha == this.senha) {
+      //     this.navCtrl.push('HomeeduPage', {user: this.name, senha: this.senha});
+      //   } 
+      //   // else {
+      //   //   alert("Login invalido");
+      //   // }
+        
+      // }
     })
   }
 

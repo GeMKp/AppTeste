@@ -17,15 +17,15 @@
         <ion-list>
           <ion-item>
             <ion-label fixed>Nome:</ion-label>
-            <ion-input [(ngModel)]="name"></ion-input>
+            <ion-input [(ngModel)]="name" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label fixed>Senha:</ion-label>
-            <ion-input [(ngModel)]="senha"></ion-input>
+            <ion-input [(ngModel)]="senha" type="password"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label fixed>Data:</ion-label>
-            <ion-input [(ngModel)]="anonasc"></ion-input>
+            <ion-input [(ngModel)]="anonasc" type="number"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label fixed>imagem:</ion-label>
@@ -33,7 +33,8 @@
           </ion-item>
         </ion-list>
         <ion-label>Deseja fazer alterações?</ion-label>
-        <button ion-button>Alterar</button>
+        <button ion-button (click)="alt()">Alterar</button>
+        <button ion-button (click)="voltar()">Voltar</button>
       </ion-col>
     </ion-row>
   </ion-grid>

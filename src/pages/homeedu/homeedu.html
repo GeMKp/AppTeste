@@ -6,7 +6,7 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>homeedu</ion-title>
+    <ion-title>Home</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -16,6 +16,10 @@
       <ion-col>
             <h3>Seu nome de usuario: </h3> {{user}}
             <h3>Idade:</h3> {{idade}}
+            <h3>Imagem:</h3>
+            <ion-list>
+                <ion-img src={{img}} style="width: 200px; height: 200px;"></ion-img>
+            </ion-list>
         <ion-label>Deseja adicionar imagem?</ion-label>
         <button ion-button small (click)="altera()">Alterações</button>
       </ion-col>

@@ -21,12 +21,14 @@ export class HomeeduPage {
   datanasc: string;
   senha: string ;
   idade: number ;
+  img: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public modalCtrl: ModalController) 
   {
       this.adquirirCookie().then((retorno:string)=>
       {
         this.idade = 2021 - parseInt(retorno);
       });
+
   }
 
   adquirirCookie()
@@ -43,6 +45,7 @@ export class HomeeduPage {
             this.user = dados.nome;
             this.senha = dados.senha;
             this.datanasc = dados.datanasc;
+            this.img = dados.imagem;
           });
           resolve(this.datanasc);
         } 

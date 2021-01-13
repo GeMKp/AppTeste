@@ -23,9 +23,12 @@ export class CadeduPage {
   senha: string;
   anonasc: number;
   idade:number;
+  img: string;
   dados: any = [];
   buttonblock: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private storage: Storage) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, public viewCtrl: ViewController, 
+    private storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -33,34 +36,43 @@ export class CadeduPage {
   }
 
   disblock(){
-    if (this.name != '' && this.senha.length >= 8 && this.anonasc > 1900) {
+    if (this.name != '' && this.senha.length >= 8 && this.anonasc > 1900 && this.img != '') {
       this.buttonblock= false;
     }
   }
 
   cadastrar(){
+
     this.idade= 2021 - this.anonasc;
-    if (this.name != '' && this.senha.length >= 8 && this.anonasc != 0 && this.idade >= 10) {
-      this.dados.push({
+    if (this.name != '' && this.senha.length >= 8 && this.anonasc != 0 && this.idade >= 10 && this.img != '') {
+     
+      let obj = [
+       {
         nome: this.name,
         senha: this.senha,
-        datanasc: this.anonasc
-      });
+        datanasc: this.anonasc,
+        imagem: this.img
+      } 
+      ]
 
-      this.storage.set('username', this.dados);
-
-      alert("Cadastrado com sucesso!");
+      this.dados.push(obj);
+    
+     alert("Cadastrado com sucesso!");
+     console.log(this.dados);
       this.name= '';
       this.senha= '';
+      this.img= '';
       this.anonasc= 0;
     } else {
       alert ("É necessario preencher todos os campos");
     }
+
   }
 
   voltar(){
+    this.storage.set('username', this.dados);
+
     this.navCtrl.pop();
   }
-
 
 }

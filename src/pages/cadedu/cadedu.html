@@ -17,7 +17,7 @@
         <ion-list>
           <ion-item>
             <ion-label floating>Nome:</ion-label>
-            <ion-input [(ngModel)]="name" type="name"></ion-input>
+            <ion-input [(ngModel)]="name" type="text"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label floating>Senha:</ion-label>
@@ -25,7 +25,11 @@
           </ion-item>
           <ion-item>
             <ion-label floating>Ano de Nascimento:</ion-label>
-            <ion-input [(ngModel)]="anonasc" type="number" (ionChange)="disblock()"></ion-input>
+            <ion-input [(ngModel)]="anonasc" type="number"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Imagem:</ion-label>
+            <ion-input [(ngModel)]="img" type="text"  (ionChange)="disblock()"></ion-input>
           </ion-item>
         </ion-list>
         <button ion-button (click)="cadastrar()" [disabled]="buttonblock">Cadastrar</button>
