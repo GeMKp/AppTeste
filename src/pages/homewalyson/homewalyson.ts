@@ -27,7 +27,7 @@ export class HomewalysonPage {
     ) {
       this.adquirirCookie().then((retorno:string)=>
       {
-        this.idade = 2021 - parseInt(retorno);
+        //this.idade = 2021 - parseInt(retorno);
       });
   }
 
@@ -37,18 +37,7 @@ export class HomewalysonPage {
     {
       this.storage.get('dado').then((val:any) => 
       {
-        if(val)
-        {
-          val.forEach((dados:any) => 
-          {
-            
-            this.nome = dados.nome;
-            this.senha = dados.senha;
-            this.ano = dados.ano;
-            this.link = dados.link;
-          });
-          resolve(this.ano);
-        } 
+        console.log(val);
       });
     });
   }
