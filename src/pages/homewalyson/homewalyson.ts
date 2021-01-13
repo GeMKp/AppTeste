@@ -14,6 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'homewalyson.html',
 })
 export class HomewalysonPage {
+  nome:string;
+  senha: string;
+  ano:string;
+  idade: number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
