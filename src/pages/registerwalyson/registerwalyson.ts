@@ -29,11 +29,12 @@ export class RegisterwalysonPage {
 
   register(){
     if(this.link != "" && this.nome != "" && this.senha.length >= 8 && this.ano != 0 && (2021- this.ano) >= 10){
-      this.navCtrl.push('HomewalysonPage'); 
        this.dado.push(
         {
           nome: this.nome,
-          senha: this.senha
+          senha: this.senha,
+          link: this.link,
+          ano: this.ano
         }
       );
      
