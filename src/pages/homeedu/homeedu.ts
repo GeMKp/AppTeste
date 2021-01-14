@@ -29,6 +29,8 @@ export class HomeeduPage {
         this.idade = 2021 - parseInt(retorno);
       });
 
+      alert(this.navParams.get('id'));
+
   }
 
   adquirirCookie()
