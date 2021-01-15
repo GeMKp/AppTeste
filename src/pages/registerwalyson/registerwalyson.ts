@@ -74,31 +74,43 @@ export class RegisterwalysonPage {
       }];
       
       this.storage.get(this.key).then((ret:any)=>{
+
         if(ret == null){
-          this.storage.set(this.key,obj);
-          return;
+          this.storage.set(this.key,obj).then((success)=>{
+             this.navCtrl.push('LoginwalysonPage');
+          });
+        }
+        for(let i=0; i < ret.length; i++){
+          if(ret[i].nome == this.nome && ret[i].senha == this.senha){
+            alert("Já existe uma conta com esse nome !!");
+            return false;
+          }
         }
         if(ret.length > 0 && ret != ''){
           let objnovo = ret.concat(obj);
-          this.storage.set(this.key,objnovo);
-          return;
+          this.storage.set(this.key,objnovo).then((su)=>{
+            this.navCtrl.push('HomewalysonPage');
+          });
         }
       })
        
-        } }
+        } else{
+          alert("Algo deu errado verifique nome e senha, e tente novamente !!");
+        }
+         }
       
 
   openpage(){
-   // this.navCtrl.push('LoginwalysonPage');
+    this.navCtrl.push('LoginwalysonPage');
   /*this.storage.remove("dados").then((ret)=>{
      console.log("apagado");
    })
 */
-
+/*
    this.getCookie(this.key).then((retorno)=>{
    console.log(retorno);
    });
-  
+  */
 
   }
   /*

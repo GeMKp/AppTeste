@@ -15,9 +15,7 @@ import { Storage } from '@ionic/storage';
 })
 export class HomewalysonPage {
   nome:string;
-  senha: string;
-  ano:string;
-  idade: number;
+  dado: any[];
   link:string;
   constructor(
     public navCtrl: NavController, 
@@ -25,9 +23,10 @@ export class HomewalysonPage {
     public modalCtrl: ModalController,
     private storage: Storage 
     ) {
-      this.adquirirCookie().then((retorno:string)=>
+      
+     this.storage.get('dados').then((val:any) => 
       {
-        //this.idade = 2021 - parseInt(retorno);
+        this.dado = val;
       });
   }
 
@@ -35,24 +34,16 @@ export class HomewalysonPage {
   {
     return new Promise((resolve,reject)=>
     {
-      this.storage.get('dado').then((val:any) => 
+      this.storage.get('dados').then((val:any) => 
       {
         console.log(val);
       });
     });
   }
-  openmodal(){
-    this.adquirirCookie().then((retorno:string)=>
-    {
-    const modal = this.modalCtrl.create('EditarwalysonPage', {
-     nome: this.nome,
-     senha: this.senha,
-     ano: this.ano,
-     link: this.link
-  });
-  modal.present();
-    });
-
+ 
+  openmodal(indice:string){
+    this.navCtrl.push('EditarwalysonPage', {
+     id: indice });
   }
 
   backpage(){
