@@ -22,43 +22,51 @@ export class HomeeduPage {
   senha: string ;
   idade: number ;
   img: string;
+  dados: any = [];
+  id: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, public modalCtrl: ModalController) 
   {
-      this.adquirirCookie().then((retorno:string)=>
+      // this.adquirirCookie().then((retorno:string)=>
+      // {
+      //   this.idade = 2021 - parseInt(retorno);
+      // });
+
+      this.storage.get('username').then((val:any)=>
       {
-        this.idade = 2021 - parseInt(retorno);
+        this.dados = val;
       });
-
-      alert(this.navParams.get('id'));
-
+      
   }
 
-  adquirirCookie()
-  {
-    return new Promise((resolve,reject)=>
-    {
-      this.storage.get('username').then((val:any) => 
-      {
-        if(val)
-        {
-          val.forEach((dados:any) => 
-          {
-            console.log(dados);
-            this.user = dados.nome;
-            this.senha = dados.senha;
-            this.datanasc = dados.datanasc;
-            this.img = dados.imagem;
-          });
-          resolve(this.datanasc);
-        } 
-      });
-    });
-  }
+  // adquirirCookie()
+  // {
+  //   return new Promise((resolve,reject)=>
+  //   {
+  //     this.storage.get('username').then((val:any) => 
+  //     {
+  //       if(val)
+  //       {
+          
+  //           console.log(val);
+  //           this.user = val[this.id].nome;
+  //           this.senha = val[this.id].senha;
+  //           this.datanasc = val[this.id].datanasc;
+  //           this.img = val[this.id].imagem;
+          
+  //         resolve(this.datanasc);
+  //       } 
+  //     });
+  //   });
+  // }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomeeduPage');
   }
-
+  editar(i:number)
+  {
+    const modal = this.modalCtrl.create('UsueduPage', {id: i})
+    modal.present();
+  }
   altera(){
     const modal = this.modalCtrl.create('UsueduPage');
     modal.present();

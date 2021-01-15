@@ -19,7 +19,7 @@ export class LogineduPage {
   name: string;
   senha: string;
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
-    this.entrar();
+    
   }
 
   ionViewDidLoad() {
@@ -31,7 +31,7 @@ export class LogineduPage {
       console.log(val);
       for (let i=0; i < val.length; i++){
         if (val[i].nome == this.name && val[i].senha == this.senha) {
-          this.navCtrl.push('HomeeduPage', {id: i});
+          this.navCtrl.push('HomeeduPage');
         }
       }
     })

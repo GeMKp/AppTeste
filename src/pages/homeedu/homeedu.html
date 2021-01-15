@@ -14,14 +14,14 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-            <h3>Seu nome de usuario: </h3> {{user}}
-            <h3>Idade:</h3> {{idade}}
-            <h3>Imagem:</h3>
-            <ion-list>
-                <ion-img src={{img}} style="width: 200px; height: 200px;"></ion-img>
-            </ion-list>
-        <ion-label>Deseja adicionar imagem?</ion-label>
-        <button ion-button small (click)="altera()">Alterações</button>
+           <ion-list>
+             <ion-item *ngFor="let dado of dados; let i = index">
+                <h4>Nome: {{dado.nome}}</h4>
+                <h5>Idade: {{2021 - dado.datanasc}}</h5> 
+                <img src={{dado.imagem}} style="width: 100px; height: 100px;">
+                <button ion-button small (click)="editar(i)">Editar</button>
+             </ion-item>
+           </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

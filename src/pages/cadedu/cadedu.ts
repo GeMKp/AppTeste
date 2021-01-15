@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
-import { IonicStorageModule } from '@ionic/storage';
 import { Storage } from '@ionic/storage';
-import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
-
 
 
 /**
@@ -20,7 +17,7 @@ import { resolve } from '@angular/compiler-cli/src/ngtsc/file_system';
 })
 export class CadeduPage {
 
-  name: string ;
+  name: string;
   senha: string;
   anonasc: number;
   idade:number;
@@ -54,25 +51,38 @@ export class CadeduPage {
         imagem: this.img
       }];
 
+      new Promise((resolve, reject) => {
+          this.storage.get('username').then((val:any)=>{
+    
+            if (val == null) {
+              this.storage.set('username', obj).then((ret)=>{
+                alert("Cadastrado com sucesso!");
+                return resolve(true);
+              });
+            }
+    
+            if(val.length > 0 && val != ''){
 
-      this.storage.get('username').then((val:any)=>{
-        if (val == null) {
-           this.storage.set('username', obj)
-           return;
-        }
-        if (val.length > 0 && val != '') {
-          let v = val.concat(obj)
-            this.storage.set('username', v)
-            return;
-        }
-      })
-
-    alert("Cadastrado com sucesso!");
-
-      this.name= '';
-      this.senha= '';
-      this.img= '';
-      this.anonasc= 0;
+              for(let i = 0; i < val.length; i++){
+                if(val[i].nome == this.name && val[i].senha == this.senha){
+                  alert("Conta já existe");
+                  return resolve(true);;
+                }
+              } 
+              
+              let v = val.concat(obj);
+              this.storage.set('username', v).then((retorno)=>{
+              alert("Cadastrado com sucesso!");
+              return resolve(true);;
+              });
+            } 
+        })   
+      }).then((data)=>{
+        this.name ='';
+        this.senha='';
+        this.anonasc=0;
+        this.img='';
+      });    
 
  /*     let teste:any = new Promise((resolve, reject)=>{
         this.storage.get('username')
@@ -114,13 +124,7 @@ export class CadeduPage {
       this.dados.push(obj);   
 
       this.storage.set('username', this.dados);
-
-     alert("Cadastrado com sucesso!");
-     console.log(this.dados);
-      this.name= '';
-      this.senha= '';
-      this.img= '';
-      this.anonasc= 0;*/
+*/
     } else {
       alert ("É necessario preencher todos os campos");
     }
@@ -128,7 +132,7 @@ export class CadeduPage {
   }
 
   voltar(){
-    this.navCtrl.pop();
+    this.navCtrl.push('LogineduPage');
   }
   apagar(){
     this.storage.get('username').then((val:any)=>{
