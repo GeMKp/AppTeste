@@ -1,0 +1,34 @@
+<!--
+  Generated template for the VisualizarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle primary large>
+      <ion-icon name="menu" class="icone"></ion-icon>
+    </button>
+    <ion-title>Registro de Usuário</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding style="background:linear-gradient(to bottom, #fff,  #d6e6ff);">
+  <h3 id="principal">Visualizar Usuários</h3>
+  <p class="tudo">
+    <ion-list>
+      <ion-item *ngFor="let v of ver;let i = index" class="item">
+          <p class="imagemP">
+            <img src= {{v.Foto}} style="width: 100px; height: 100px;" alt="imagem" class="imagem">
+          </p>
+          <ion-col col-6>
+            <p><span class="indice">Nome:</span> <span class="valores">{{v.Nome}}</span></p>
+            <p><span class="indice">Nascido em:</span> <span class="valores">{{v.Data}}</span></p>
+            <p><span class="indice">Senha:</span> <span class="valores">{{v.Senha}}</span></p>
+            <button ion-button (click) = "openModal(i)">Editar</button>
+          </ion-col>
+      </ion-item>
+    </ion-list>
+  </p>
+
+</ion-content>

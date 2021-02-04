@@ -1,0 +1,42 @@
+
+p{
+  text-align: left;
+}
+.imagemP{
+  text-align: center;
+}
+.indice{
+  font-weight: bolder;
+}
+
+@media only screen and (min-width: 400px){
+  .tudo{
+    width: 80%;
+    margin: auto;
+  }
+}
+@media only screen and (min-width: 720px){
+  .tudo{
+    width: 49%;
+    margin: auto;
+    border: none;
+    box-shadow: 1px 1px 3px #ccc;
+  }
+  .imagem{
+    width: 200px;
+    height: 180px;
+  }
+  .indice{
+    font-size: 20px;
+  }
+  .valores{
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: 1005px){
+  .tudo{
+    width: 25%;
+    margin: auto;
+  }
+}
