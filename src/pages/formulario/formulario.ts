@@ -1,5 +1,10 @@
+import { VisualizarPage } from './../visualizar/visualizar';
+import { Storage } from '@ionic/storage';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, ModalController, NavController, NavParams } from 'ionic-angular';
+import { FormmodalPage } from '../formmodal/formmodal';
+
+
 
 /**
  * Generated class for the FormularioPage page.
@@ -12,43 +17,63 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 @Component({
   selector: 'page-formulario',
   templateUrl: 'formulario.html',
+
 })
 export class FormularioPage {
+  novoCookie;
+  formulario = [];
   //Atributos
   nome: string;
-  data: string;
+  data: number;
   foto: string;
   senha: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    /*public navCtrl: NavController,*/
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private storage: Storage,
+    public modalCtrl: ModalController
+    )
+    {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FormularioPage');
   }
 
 
+
   Confirmar(){
-
-    if(this.nome == null){
-      alert("Registro Inválido, o campo nome não foi preenchido");
-
-    }else if(this.data == null){
-
-      alert("Registro Inválido, o campo data não foi preenchido");
-
-    }else if(this.foto == null){
-
-      alert("Registro Inválido, o campo foto não foi preenchido");
-
-    }else if(this.senha == null && this.senha < 8 && this.senha <= 15){
-
-      alert("Registro Inválido, o campo senha não foi preenchido");
-
-    }else{
-
-      alert("Registro Ok");
+    if((this.nome == null) || (this.senha == null) || (this.data == null) || (this.foto == null)){
+      alert("Registro Inválido, Campos não foram preenchidos");
     }
-  }
+    else if(this.data <= 4){
+      alert("Erro de registro, o campo Data só pode compor 4 caracteres no total");
+    }
+    else{
 
+        alert("Registro Ok");
+        this.formulario.push({
+          Nome: this.nome,
+          Senha: this.senha,
+          Data: this.data,
+          Foto: this.foto
+        });
+
+        this.storage.get('Nome').then((dados) => {
+          if(dados != null){
+            this.novoCookie = dados;
+            let total = this.novoCookie.concat(this.formulario);
+            this.storage.set('Nome', total);
+            console.log(total);
+          }
+          this.openpage();
+        });
+
+    }
+
+  }
+  openpage(){
+    this.navCtrl.push('VisualizarPage');
+  }
 }

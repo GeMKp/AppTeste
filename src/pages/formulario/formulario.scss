@@ -1,12 +1,28 @@
+p.bot{
+  text-align: center;
+}
+#principal{
+  text-align: center;
+  font-size: 22px;
+}
 ion-row{
-  justify-content: center;
+  width: 90%;
+  margin: auto;
 }
-ion-grid{
-  position: absolute;
-  top: 10%;
-  width: 900px;
-  height: auto;
+ion-content{
+  display: flex;
+  align-items: center;
+
 }
-ion-item.botao button{
-  margin-left: 45%;
+p{
+  text-align: center;
+}
+/*Layout Ipad*/
+@media only screen and (min-width: 620px){
+  ion-label{
+    font-size: 20px;
+  }
+  input{
+    font-size: 22px;
+  }
 }

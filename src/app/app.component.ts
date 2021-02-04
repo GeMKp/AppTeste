@@ -45,9 +45,11 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' },
     { title: 'Teste', component: 'TestePage' },
     { title: 'Test2', component: 'Teste2page'},
-    
+
     { title: 'Loginwaly', component: 'LoginwalyPage'},
-    { title: 'teste3', component: 'Teste3Page'}
+    { title: 'teste3', component: 'Teste3Page'},
+    { title: 'FormsInacio', component: 'FormularioPage'},
+    { title: 'FormsInacioRecebe', component: 'VisualizarPage'}
   ]
 
   constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
@@ -56,7 +58,7 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
-     
+
     });
     this.initTranslate();
   }

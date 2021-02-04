@@ -6,36 +6,42 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>Registro de Usuário</ion-title>
+    <button ion-button menuToggle primary large>
+      <ion-icon name="menu" class="icone"></ion-icon>
+    </button>
+    <ion-title class="titulo">Registro de Usuário</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-grid>
-  <ion-row>
-    <ion-col col-6>
-      <ion-item>
-        <ion-label floating>Username</ion-label>
-        <ion-input type="text" [(ngModel)]="nome"></ion-input>
-      </ion-item>
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+          <h3 id="principal">Registrar</h3>
+        <ion-item>
+          <ion-label floating>Username</ion-label>
+          <ion-input type="text" [(ngModel)]="nome" class="inputar"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label floating>Ano de Nascimento*</ion-label>
-        <ion-input type="data" [(ngModel)]="data"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label floating>Ano de Nascimento*</ion-label>
+          <ion-input type="data" [(ngModel)]="data" class="inputar"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label floating>Adicione uma Imagem*</ion-label>
-        <ion-input type="text" [(ngModel)]="foto"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label floating>Adicione uma Imagem*</ion-label>
+          <ion-input type="text" [(ngModel)]="foto" class="inputar"></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label floating>Password</ion-label>
-        <ion-input type="password" [(ngModel)]="senha"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" [(ngModel)]="senha" class="inputar"></ion-input>
+        </ion-item>
 
-      <ion-item class="botao">
-        <button ion-button color="secondary" (click)="Confirmar()" type="submit">Registrar</button>
-      </ion-item>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+        <ion-item class="botao">
+          <p class="bot"><button ion-button color="secondary" round large (click)="Confirmar()" type="submit">Registrar</button></p>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
